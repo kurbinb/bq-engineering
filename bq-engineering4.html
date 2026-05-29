@@ -376,61 +376,7 @@
   }
   .pillar p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
 
-  /* KONTAKT */
-  #kontakt { }
-  .kontakt-inner {
-    display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start;
-  }
-  .kontakt-info p { color: var(--muted); font-size: 0.97rem; margin-bottom: 2rem; }
-  .contact-detail {
-    display: flex; align-items: flex-start; gap: 12px;
-    margin-bottom: 1.2rem;
-  }
-  .contact-icon {
-    width: 36px; height: 36px; border-radius: 8px;
-    background: rgba(0,122,106,0.08); border: 1px solid rgba(0,122,106,0.18);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.9rem; flex-shrink: 0;
-  }
-  .contact-detail-text { font-size: 0.9rem; }
-  .contact-detail-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
-  .contact-form {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 14px; padding: 2.2rem;
-  }
-  .form-group { margin-bottom: 1.2rem; }
-  .form-group label {
-    display: block; font-size: 0.8rem; font-weight: 600;
-    color: var(--muted); text-transform: uppercase;
-    letter-spacing: 0.06em; margin-bottom: 0.5rem;
-  }
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    width: 100%; background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: 6px; padding: 0.75rem 1rem;
-    color: var(--text); font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.93rem; outline: none;
-    transition: border-color 0.2s;
-  }
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus { border-color: var(--accent); }
-  .form-group textarea { resize: vertical; min-height: 110px; }
-  .form-group select option { background: #ffffff; color: #111827; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .form-submit {
-    width: 100%; background: var(--accent);
-    color: #080c12; border: none;
-    padding: 0.9rem; border-radius: 6px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700; font-size: 0.97rem;
-    cursor: pointer; transition: 0.2s;
-    margin-top: 0.5rem;
-  }
-  .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+<!-- KONTAKT --> <section id="kontakt"> <div class="kontakt-inner"> <div class="kontakt-info"> <div class="section-label">Kontakt</div> <h2 class="section-title">Projekt­anfrage stellen</h2> <div class="divider"></div> <p> Sie planen ein Projekt und suchen einen erfahrenen Ingenieurpartner? Wir freuen uns auf Ihre Anfrage – sprechen Sie uns an. </p> <div class="contact-detail"> <div class="contact-icon">📍</div> <div> <div class="contact-detail-label">Adresse</div> <div class="contact-detail-text"> Musterstraße 12, 12345 Musterstadt </div> </div> </div> <div class="contact-detail"> <div class="contact-icon">📞</div> <div> <div class="contact-detail-label">Telefon</div> <div class="contact-detail-text"> +49 (0) 123 456 789 </div> </div> </div> <div class="contact-detail"> <div class="contact-icon">✉️</div> <div> <div class="contact-detail-label">E-Mail</div> <div class="contact-detail-text"> <a href="mailto:info@bq-engineering.de"> info@bq-engineering.de </a> </div> </div> </div> <div class="contact-detail"> <div class="contact-icon">🕐</div> <div> <div class="contact-detail-label">Erreichbarkeit</div> <div class="contact-detail-text"> Mo–Fr, 8:00–17:30 Uhr </div> </div> </div> </div> <!-- FORMULAR --> <div class="contact-form"> <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:1.5rem;"> Anfrage senden </h3> <form id="contact-form"> <div class="form-row"> <div class="form-group"> <label>Vorname</label> <input id="f-vorname" name="vorname" type="text" placeholder="Max" required > </div> <div class="form-group"> <label>Nachname</label> <input id="f-nachname" name="nachname" type="text" placeholder="Mustermann" required > </div> </div> <div class="form-group"> <label>E-Mail-Adresse</label> <input id="f-email" name="email" type="email" placeholder="max@mustermann.de" required > </div> <div class="form-group"> <label>Unternehmen / Organisation</label> <input id="f-firma" name="firma" type="text" placeholder="Optional" > </div> <div class="form-group"> <label>Leistungsbereich</label> <select id="f-leistung" name="leistung" required > <option value="">Bitte wählen…</option> <option>Heizungs- & Wärmetechnik</option> <option>Sanitär- & Wassertechnik</option> <option>Lüftung & Klimatechnik</option> <option>Energietechnik & Erneuerbare</option> <option>Energieberatung & -audits</option> <option>Nachhaltiges Bauen / DGNB</option> <option>Sonstiges</option> </select> </div> <div class="form-group"> <label>Ihre Nachricht</label> <textarea id="f-nachricht" name="nachricht" placeholder="Beschreiben Sie kurz Ihr Vorhaben – Projektgröße, Standort, Zeitrahmen…" required ></textarea> </div> <button type="submit" class="form-submit" > Anfrage absenden → </button> <div id="form-status" style="margin-top:1rem;font-weight:600;" ></div> </form> </div> </div> </section> <!-- EMAILJS --> <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"> </script> <script> emailjs.init("DEIN_PUBLIC_KEY"); document .getElementById("contact-form") .addEventListener("submit", function(event) { event.preventDefault(); const status = document.getElementById("form-status"); status.innerHTML = "Nachricht wird gesendet..."; emailjs.send("DEIN_SERVICE_ID", "DEIN_TEMPLATE_ID", { vorname: document.getElementById("f-vorname").value, nachname: document.getElementById("f-nachname").value, email: document.getElementById("f-email").value, firma: document.getElementById("f-firma").value, leistung: document.getElementById("f-leistung").value, nachricht: document.getElementById("f-nachricht").value }) .then(function() { status.innerHTML = "✅ Vielen Dank! Ihre Anfrage wurde erfolgreich versendet."; document .getElementById("contact-form") .reset(); }) .catch(function(error) { console.error(error); status.innerHTML = "❌ Fehler beim Versand. Bitte versuchen Sie es später erneut."; }); }); </script>
 
   /* ÜBER MICH */
   #ueber-mich { background: var(--surface); }
